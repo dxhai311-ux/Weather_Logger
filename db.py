@@ -1,6 +1,6 @@
 import os #lấy dữ liệu từ file .env
 from dotenv import load_dotenv #đọc dữ liệu từ file .env
-from sqlalchemy import create_engine, text #kết nối với database
+from sqlalchemy import create_engine, text #thư viện giúp kết nối với database
 
 load_dotenv() #đọc file .env
 
@@ -36,7 +36,8 @@ def create_table():
         connection.commit() #B3: lưu thay đổi vào database
         print('Bảng weather đã sãn sàng!') #để dễ debug
 #PostgreSQL hoạt động theo transaction — tức là mọi thay đổi được giữ tạm thời, chưa lưu thật sự cho đến khi commit.
-
+if __name__ == "__main__":
+    create_table()
 #====Chi tiết===
 #CREATE TABLE → tạo bảng mới
 #IF NOT EXISTS → nếu bảng đã có rồi thì bỏ qua, không báo lỗi
@@ -49,4 +50,3 @@ def create_table():
 #recorded_at → tên cột
 #TIMESTAMP → lưu ngày + giờ
 #DEFAULT NOW() → tự động điền thời gian hiện tại
-create_table()
