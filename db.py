@@ -1,3 +1,7 @@
+#DB làm 2 nhiệm vụ
+#1. Kết nối với database PostgreSQL
+#2. Tạo bảng weather nếu chưa tồn tại
+
 import os #lấy dữ liệu từ file .env
 from dotenv import load_dotenv #đọc dữ liệu từ file .env
 from sqlalchemy import create_engine, text #thư viện giúp kết nối với database
@@ -5,7 +9,6 @@ from sqlalchemy import create_engine, text #thư viện giúp kết nối với 
 load_dotenv() #đọc file .env
 
 def get_engine():
-    #lấy dữ liệu từ file .env
     user = os.getenv('DB_USER')
     password = os.getenv('DB_PASSWORD')
     host = os.getenv('DB_HOST')
