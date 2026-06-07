@@ -1,29 +1,44 @@
+# Weather Logger
 
-# 🌤️ Weather Logger
+A simple ETL project that collects weather data from OpenWeather API and stores it in PostgreSQL.
 
-Ứng dụng ghi lại lịch sử thời tiết theo thời gian thực.
+## Features
 
----
+- Fetch weather data from OpenWeather API
+- Convert JSON response into Python data
+- Store data in PostgreSQL using SQLAlchemy
+- Secure API key management with `.env`
+- Handle network/API connection errors
 
-## Luồng hoạt động
+## Tech Stack
 
+- Python
+- Requests
+- PostgreSQL
+- SQLAlchemy
+- python-dotenv
+
+## Workflow
+
+```text
+OpenWeather API
+      ↓
+   JSON Data
+      ↓
+ Python Processing
+      ↓
+ PostgreSQL
 ```
-Người dùng nhập thành phố
-        ↓
-Gọi API OpenWeatherMap → nhận JSON
-        ↓
-Xử lý data (nhiệt độ, độ ẩm, mô tả)
-        ↓
-Lưu vào PostgreSQL
+
+## Run
+
+```bash
+python main.py
 ```
 
----
+## Future Improvements
 
-## Công nghệ
-
-| Thư viện | Vai trò |
-|----------|---------|
-| `requests` | Gọi API OpenWeatherMap |
-| `python-dotenv` | Đọc biến môi trường từ `.env` |
-| `SQLAlchemy` | Kết nối PostgreSQL |
-| `psycopg2` | Driver PostgreSQL |
+- Add timestamp (`created_at`)
+- Support multiple cities
+- Export data to CSV
+- Schedule automatic data collection
